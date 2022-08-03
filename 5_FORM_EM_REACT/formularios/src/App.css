@@ -1,0 +1,10 @@
+.App{
+  padding: 10% 15%;
+  text-align: center;
+}
+
+h1{
+  color: #ffffff;
+  text-decoration: overline underline;
+  margin-top: -2px;
+}

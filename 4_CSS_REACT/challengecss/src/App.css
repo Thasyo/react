@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+h1{
+  padding: 20px;
+  border: 3px solid #706c6c;
+  background-color: #5ff6df;
+  color: #46481c;
+}

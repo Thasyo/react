@@ -1,0 +1,9 @@
+p{
+    color: #2d2d2d;
+    background-color:#6c6b6b;
+}
+
+.my-component{ /*ESTILIZANDO A NIVEL DE COMANDO? sacanagem...*/
+    color: aqua;
+    background-color: #e78686;
+}

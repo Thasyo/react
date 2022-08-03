@@ -1,0 +1,14 @@
+
+
+form{
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    color: rgb(223, 225, 227);
+}
+
+input, textarea, select{
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+}

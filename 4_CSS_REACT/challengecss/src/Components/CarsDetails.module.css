@@ -1,0 +1,19 @@
+.brand{
+    color: #ff7676;
+    padding: 8px;
+    background-color: #888484;
+    border: 3px solid #444242;
+}
+
+.color{
+    color: #77c2ff;
+    background-color: #888484;
+    border: 3px solid #444242;
+}
+
+.year{
+    color: aliceblue;
+    background-color: #888484;
+    border: 3px solid #444242;
+    border-bottom: 2px solid #dcd7d7;
+}
