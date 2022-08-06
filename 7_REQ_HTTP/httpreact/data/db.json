@@ -1,36 +1,48 @@
 {
-  "product": [
+  "products": [
     {
       "id": 1,
       "name": "Camisa",
-      "price": 59.9
+      "price": 49.9
     },
     {
       "id": 2,
-      "name": "Calça Vermelha",
-      "price": 90
+      "name": "Calça moletom",
+      "price": 69.9
     },
     {
       "id": 3,
-      "name": "Boné de Aba Reta",
-      "price": 29.9
+      "name": "Sapatênis",
+      "price": 149.9
     },
     {
+      "name": "Casaco",
+      "price": "79.9",
       "id": 4
     },
     {
+      "name": "Calça jeans",
+      "price": "159.9",
       "id": 5
     },
     {
+      "name": "Blusa ",
+      "price": "29.9",
       "id": 6
     },
     {
+      "name": "Tênis",
+      "price": "179.9",
       "id": 7
     },
     {
+      "name": "Chinelo",
+      "price": "19.9",
       "id": 8
     },
     {
+      "name": "Colar",
+      "price": "359.9",
       "id": 9
     },
     {
@@ -56,6 +68,18 @@
     },
     {
       "id": 17
+    },
+    {
+      "id": 18
+    },
+    {
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "id": 21
     }
   ]
 }

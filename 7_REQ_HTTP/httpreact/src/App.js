@@ -1,74 +1,91 @@
 import './App.css';
 
-import {useState, useEffect} from "react";
+import {useState, /*useEffect*/} from "react";
 
-const url = "http://localhost:3000/product" //url para acessar o nosso bando de dados
+//4- CUSTOM HOOK
+import {useFetch} from "./hooks/useFetch"
+
+const url = "http://localhost:3000/products"
 
 function App() {
-  const [products, setProducts] = useState([]) //useState para salvar os dados e manipular com o set.
 
-  //criando os useStates para os inputs que serão criados.
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
+  //utilizando o useState para salvar os dados da API e manipulá-los.
+  const [products, setProducts] = useState([])
+
+  //4- CUSTOM HOOK
+  const {data: items, httpConfig} = useFetch(url)
+
+  //Criando os useStates dos input do form.
+  const [name, setName] = useState("")
+  const [price, setPrice] = useState("")
+
   //1- resgatando dados
-  useEffect(() => { //Utilizando o useEffect para acessar o banco de dados somente uma vez.
-    async function fetchData() {
+  //useEffect(() =>{
+    //async function fetchData() {
 
-      const res = await fetch(url); //Acessando e recebendo  os dados da url do banco de dados
+      //const res = await fetch(url); //Essa linha de código vai fazer a requisição dos dados, no formato json.
       
-      const data = await res.json(); //Transformando o json(string) para object, afim de manipular os dados np nosso front.
+      //const data = await res.json(); //Essa linha de código vai transformar os dados de json para object, afim de manipula-los no template.
+    
+      //setProducts(data); //Recebendo e salvando os dados recebidos.
+    //}
+    //fetchData(); //fazendo a chamada da função
+  //}, [])
 
-      setProducts(data); //Recebendo os dados do json e preenchendo o array vazio do products com o setProducts.
-    }
+  //2- Adicionando dados na API.
+  const handleSubmit = async (e) => {
+    e.preventDefault() //para não recarregar a página ao criar o produto.
 
-    fetchData(); //Fazendo a chamada da função normalmente.
-  }, []);
+    //Criando um objeto para organizar os dados para enviar para a API.
+    const product = {
+      name,
+      price,
+    };
+    //console.log(product)
 
-  //2- adicionando dados 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+    //Adicionando dados á API.
+    //const res = await fetch(url, {
+      //method: "POST", //POST: adiciona dados na API.
+      //headers: {
+        //"Content-Type": "application/json"
+      //},
+      //body: JSON.stringify(product)
+    //});
+    //console.log(res)
 
-  //Object criado para armazenar dados dos inputs para o backend.
-  const product = {
-    name,
-    price,
-  }
+    //3- Carregamento dinâmico.
+    //const addProduct = await res.json(); //Transformando json em object novamente.
 
-  console.log(product)
+    //setProducts((prevProducts) => [...prevProducts, addProduct]) //Tá fazendo a junção dos dados já escritos com os novos dados recebidos do form.
 
-  //Adicionando dados no banco de dados por meio do metodo POST no json;
-  const res = fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application"
-    },
-    body: JSON.stringify(product),
-  });
-  }
+    //5- REFATORANDO POST.
+    httpConfig(product, "POST")
+
+    //Limpando dados dos inputs após o envio dos mesmos.
+    setName("")
+    setPrice("")
+  }; 
 
   return (
     <div className="App">
       <h1>Lista de Produtos</h1>
-
-      {/* Exibindo os dados no front com a função .map() */}
+      {/* Exibindo os dados recebidos da API no front. */}
       <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            {product.name} - {product.price}
-          </li>
+        {items && items.map((product) => (
+          <li key={product.id}> {product.name} - R$ {product.price} </li>
         ))}
       </ul>
 
-      {/* Criando formulário para adiconar novos dados dinâmicamente com o metodo POST. */}
-      <div>
-        <form onSubmit={handleSubmit}>
+      {/* Criando formulário para adicionar dados á API */}
+      <div className="add-products">
+        <form onSubmit={handleSubmit} className="formulario">
           <label>
-            Nome:
-            <input type="text" value={name} name="name" onChange={(e) => setName(e.target.value)}/>
+            Name: 
+            <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
           </label>
           <label>
-            Preço:
-            <input type="number" value={price} name="price" onChange={(e) => setPrice(e.target.value)}/>
+            Preço: 
+            <input type="text" name="price" value={price} onChange={(e) => setPrice(e.target.value)}/>
           </label>
           <input type="submit" value="Criar"/>
         </form>

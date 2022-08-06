@@ -336,16 +336,16 @@ REACT - MATHEUS BATTISTI - Hora de Codar
 	- O "JSON SERVER" é um pacote npm;
 	- Ele simula uma API, e isso nos possibilita fazer requisições HTTP;
 	- Vamos aprender a integrar este recurso com o React; 
-	- Podemos entender iss como uma etapa de preparação para APIs reais;	
-	- Ou seja, atingir o mesmo resultado msa sem precisar de uma estrutura no Back-end;
-	- Sempre que for usar o json server, é necessário criar uma pasta chamada "data" na pasta principal do projeto, 
-	e depois criar uma arquivo chamado "db.json";
+	- Podemos entender isso como uma etapa de preparação para APIs reais;	
+	- Ou seja, atingir o mesmo resultado mesmo sem precisar de uma estrutura no Back-end;
 	- npm i json-server; -> instala o pacote do json server.
+	- Sempre que for usar o json server, é necessário criar uma pasta chamada "data" na pasta principal do projeto, 
+	e depois criar uma arquivo chamado "db.json"; criado esse arquivo, crie sua aplicação json (dados);
 	- "server": "json-server --watch data/db.json" => significa que vai haver um monitoramento no arquivo "db.json", vai servir para atualizar os dados que serão atualizados ou até retirados.
 
  -> A IMPORTÂNCIA DO useEFFECT:
 
-	- O "useEffect" faz com que determinada ação seja executada apenas uma vez;
+	- O "useEffect" faz com que determinada ação seja executada apenas *uma vez*;
 	- Isso é interessante pois os componentes estão sempre se "re-renderizando", então precisamos ter "ações únicas" às vezes;
 	- O useEffect ainda possui um "array de dependências", que deve conter os dados que ativem a execução da função de forma automática;
 	- O useEffect estará presente na maioria das vezes nas "requisições assíncronas";
@@ -362,5 +362,26 @@ REACT - MATHEUS BATTISTI - Hora de Codar
 	- Para adicionar um item, vamos precisar resgatar os dados do form com o useState;
 	- Reunir eles em uma função após o submit; e enviar um request de POST (adicionar) para a nossa API;
 	- O processo é bem parecido com o de resgate de dados, mas agora estamos enviando dados;
+
+ -> CARREGAMENTO DINÂMICO DE DADOS:
+
+	- Se a requisição foi feita com sucesso, podemos adicionar o item a lista após o request;
+	- Isso torna nossa aplicação mais performática;
+	- Utilizaremos o set do useState para isso;
+
+ -> CUSTOM HOOK PARA O FETCH:
+
+	- É normal dividir as funções que podem ser reaproveitadas em hooks;
+	- Esta técnica é chamada de "custom hook", e vamos criar um para o resgate de dados;
+	- Os hooks geralmente ficam na pasta "hooks";	
+	- Devemos utilizar o padrão useQualquerName;
+	- Basicamente criamos uma função e exportamos ela;
+
+ - > REFATORANDO POST:
+
+	- Podemos utilizar o mesmo hook para incluir uma etapa de POST;
+	- Vamos criar um novo useEffect que mapeia uma outra musança de estado;
+	- Após ela ocorrer, executamos a adição de produto;
+	- Obs: nem sempre reutilizar um hook é a melhor estratégia;
 
 
