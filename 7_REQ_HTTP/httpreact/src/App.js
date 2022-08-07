@@ -39,7 +39,7 @@ function App() {
 
     //Adicionando dados á API.
     const res = await fetch(url, {
-      method: "POST", //POST: adiciona dados na API.
+      method: "POST", //POST: adiciona dados na API/Banco de Dados.
       headers: {
         "Content-Type": "application/json"
       },
