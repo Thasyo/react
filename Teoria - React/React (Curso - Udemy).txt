@@ -384,4 +384,22 @@ REACT - MATHEUS BATTISTI - Hora de Codar
 	- Após ela ocorrer, executamos a adição de produto;
 	- Obs: nem sempre reutilizar um hook é a melhor estratégia;
 
+ -> ESTADO DE LOADING
+
+	- Quando fizermos requisições para APIs, é normal que haja um intervalo de loading 
+	entre a requisição e o recebimento da resposta;
+	- Podemos fazer isso no nosso também;
+	- identificar quando começa e termina este estado;
+
+ -> ESTADO DE LOADING NO POST
+
+	- Podemos bloquear ações indevidas em outras requests também, como no POST;
+	- Uma ação interessante é remover a ação de adicionar outro item enquanto o request ainda não finalizou;
+
+ -> TRATANDO ERROS
+
+	- Podemos tratar os erros das requisições por meio de um "try catch";
+	- Além de pagar os dados do erro, também podemos alterar um state para imprimir um elemento se algo der errado;
+	- Desta maneira conseguimos prever vários cenários (dados resgatados, carregamento, erros);
+
 

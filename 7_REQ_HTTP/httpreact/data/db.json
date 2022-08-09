@@ -31,11 +31,6 @@
       "id": 6
     },
     {
-      "name": "Tênis",
-      "price": "179.9",
-      "id": 7
-    },
-    {
       "name": "Chinelo",
       "price": "19.9",
       "id": 8
@@ -54,6 +49,31 @@
       "name": "Nescau",
       "price": "8.89",
       "id": 11
+    },
+    {
+      "name": "Calça Saruel",
+      "price": "238.98",
+      "id": 13
+    },
+    {
+      "name": "Meia",
+      "price": "5.99",
+      "id": 14
+    },
+    {
+      "name": "Boné",
+      "price": "10.99",
+      "id": 15
+    },
+    {
+      "name": "sunga",
+      "price": "15.99",
+      "id": 16
+    },
+    {
+      "name": "Café",
+      "price": "6.99",
+      "id": 17
     }
   ]
 }
