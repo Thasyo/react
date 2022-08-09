@@ -402,4 +402,5 @@ REACT - MATHEUS BATTISTI - Hora de Codar
 	- Além de pagar os dados do erro, também podemos alterar um state para imprimir um elemento se algo der errado;
 	- Desta maneira conseguimos prever vários cenários (dados resgatados, carregamento, erros);
 
+-> SEÇÃO 08: REACT ROUTER 
 
